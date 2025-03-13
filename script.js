@@ -13,9 +13,10 @@ async function fetchJson(url) {
 }
 async function getDashboardData(query) {
     const promise1 = fetchJson(`https://boolean-spec-frontend.vercel.app/freetestapi/destinations?search=${query}`)
-    const promise2 = fetchJson(`https://boolean-spec-frontend.vercel.app/freetestapi/destinations?search=${query}`)
-    const promise3 = fetchJson(`https://boolean-spec-frontend.vercel.app/freetestapi/destinations?search=${query}`)
+    const promise2 = fetchJson(`https://boolean-spec-frontend.vercel.app/freetestapi/weathers?search=${query}`)
+    const promise3 = fetchJson(`https://boolean-spec-frontend.vercel.app/freetestapi/airports?search=${query}`)
     const result = await Promise.all([promise1, promise2, promise3])
+    console.log(result[1])
     const data = {
         city: result[0][0].name,
         country: result[0][0].country,
